@@ -1,0 +1,11 @@
+fun main() {
+    println("Write how many cups of coffee you will need: ")
+    val num = readln().toInt()
+    val water = num * 200
+    val milk = num * 50
+    val beans = num * 15
+    println("For $num cups of coffee you will need:\n" +
+            "$water ml of water\n" +
+            "$milk ml of milk\n" +
+            "$beans g of coffee beans")
+}
