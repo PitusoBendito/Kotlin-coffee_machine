@@ -1,0 +1,73 @@
+package machine
+
+var water = 400
+var milk = 540
+var beans = 120
+var cups = 9
+var money = 550
+
+fun menu() {
+    println("The coffee machine has: \n" +
+            "$water ml of water \n" +
+            "$milk ml of milk \n" +
+            "$beans g of coffee beans \n" +
+            "$cups disposable cups \n" +
+            "$$money of money")
+}
+
+fun buy() {
+    println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino: ")
+    val option = readln().toInt()
+    when (option) {
+        1 -> buyEspresso()
+        2 -> buyLatte()
+        3 -> buyCappuccino()
+    }
+}
+
+fun buyEspresso() {
+    water -= 250
+    beans -= 16
+    cups--
+    money += 4
+}
+
+fun buyLatte() {
+
+}
+
+fun buyCappuccino() {
+
+}
+
+fun fill() {
+    println("Write how many ml of water you want to add: ")
+    val addWater = readln().toInt()
+    water += addWater
+    println("Write how many ml of milk you want to add: ")
+    val addMilk = readln().toInt()
+    milk += addMilk
+    println("Write how many grams of coffee beans you want to add: ")
+    val addBeans = readln().toInt()
+    beans += addBeans
+    println("Write how many disposable cups you want to add: ")
+    val addCups = readln().toInt()
+    cups += addCups
+}
+
+fun take() {
+    println("I gave you $money")
+    money = 0
+}
+
+fun main() {
+    menu()
+    println("Write action (buy, fill, take): ")
+    val answer = readln().toInt()
+    when (answer) {
+        1 -> buy()
+        2 -> fill()
+        3 -> take()
+    }
+    menu()
+}
